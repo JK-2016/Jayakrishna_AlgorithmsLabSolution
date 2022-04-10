@@ -21,6 +21,6 @@ public class DriverMain {
         d1.index = numDenominations-1;
         System.out.println("Your payment approach in order to give min no of notes will be");
         d1.sortDenominations();
-        d1.minDenominations();
+        d1.printDenominations();
     }
 }

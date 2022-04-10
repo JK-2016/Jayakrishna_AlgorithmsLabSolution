@@ -2,14 +2,15 @@ package MinimumDenominations.Q2;
 import java.util.Arrays;
 public class Denominations {
     int [] denominations;
+    int [] counter;
     int amount;
     int index;
     public void sortDenominations(){
         //Sort in Ascending order
         Arrays.sort(denominations);
-
+        counter = new int[denominations.length];
     }
-    //Assuming that the denominations are in such a way that any amount can be paid.
+
     public void minDenominations(){
         //Using Recursion instead of loops
         if(amount>0){
@@ -23,7 +24,8 @@ public class Denominations {
                     // find next lesser denomination
                     index--;
                 }
-                System.out.println(denominations[index] + ":" + amount / denominations[index]);
+                // System.out.println(denominations[index] + ":" + amount / denominations[index]);
+                counter[index] = amount/denominations[index];
                 amount = amount - denominations[index] * (amount / denominations[index]);
                 index--;
                 minDenominations();
@@ -31,4 +33,15 @@ public class Denominations {
         }
        // System.out.println("index after calling:"+ index);
     }
+    public void printDenominations(){
+        minDenominations();
+        if(amount==0) {
+            for (int i = 0; i < denominations.length; i++) {
+                if (counter[i] > 0) {
+                    System.out.println(denominations[i] + ":" + counter[i]);
+                }
+            }
+        }
+    }
+
 }
