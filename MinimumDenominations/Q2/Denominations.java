@@ -7,18 +7,27 @@ public class Denominations {
     public void sortDenominations(){
         //Sort in Ascending order
         Arrays.sort(denominations);
+
     }
     //Assuming that the denominations are in such a way that any amount can be paid.
     public void minDenominations(){
         //Using Recursion instead of loops
         if(amount>0){
-            while(denominations[index]>amount){
-                index--;
+            if(index<0){
+                System.out.println("Not payable");
             }
-            System.out.println(denominations[index]+":"+amount/denominations[index]);
-            amount = amount-denominations[index]*(amount/denominations[index]);
-            index--;
-            minDenominations();
+            else {
+
+                while (denominations[index] > amount) {
+                    //If the remaining amount is less than the next higher denomination
+                    // find next lesser denomination
+                    index--;
+                }
+                System.out.println(denominations[index] + ":" + amount / denominations[index]);
+                amount = amount - denominations[index] * (amount / denominations[index]);
+                index--;
+                minDenominations();
+            }
         }
        // System.out.println("index after calling:"+ index);
     }

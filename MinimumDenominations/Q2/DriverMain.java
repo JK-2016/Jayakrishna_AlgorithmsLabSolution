@@ -12,6 +12,9 @@ public class DriverMain {
         System.out.println("Enter the currency denominations value");
         for(int i=0;i<numDenominations;i++){
             d1.denominations[i]= in.nextInt();
+            if(d1.denominations[i]==0){
+                throw new java.lang.RuntimeException("Denomination cannot be zero");
+            }
         }
         System.out.println("Enter the amount you want to pay");
         d1.amount = in.nextInt();
