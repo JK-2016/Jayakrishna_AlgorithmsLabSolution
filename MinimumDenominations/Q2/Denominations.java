@@ -8,6 +8,7 @@ public class Denominations {
         //Sort in Ascending order
         Arrays.sort(denominations);
     }
+    //Assuming that the denominations are in such a way that any amount can be paid.
     public void minDenominations(){
         //Using Recursion instead of loops
         if(amount>0){
